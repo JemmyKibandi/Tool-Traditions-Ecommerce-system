@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(bp.urlencoded({extended: true}))
 app.use(bp.json())
 // Serve static files from the "frontend" directory
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, '../frontend/frotend')));
 
 //STEP 4: code to connect to the database
 // const connection = mysql.createConnection({
@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 //     }
 //   }
 // )})
-// // Code to insert data to the database
+// Code to insert data to the database
 // app.post('/register', (req, res) => {  
 //   const {newUserId = result.insertId,fname, phone, email, pword, actpword } = req.body;
 //   const sql = "INSERT INTO `users`(`user_id`, `fname`, `phone`, `email`, `pword`, `actpword`) VALUES (?, ?, ?, ?, ?, ?)";
@@ -60,7 +60,7 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 //     }
 //   });
 // });
-// // ROUTE TO LOGOUT
+// ROUTE TO LOGOUT
 // app.post('/logout', (req, res) => {
 //   // Clear the user's session data
 //   req.session.destroy((err) => {
