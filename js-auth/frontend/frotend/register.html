@@ -582,34 +582,30 @@
                     <div class="login-register-wrapper">
                         <h4 class="title">Login to Your Account</h4>
                         <p>Already have an account? <a href="login.html">Log in instead!</a></p>
-                        <form action="#">
+                        <form action="server.php" method="post" type="multipart form">
                             <div class="single-form">
                                 <label class="form-label">First Name</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="fname">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Last Name</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control"  name="lname">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Email Address *</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control"  name="email">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Username *</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control"  name="username">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Password</label>
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" name="pword">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control">
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="receive">
-                                <label class="form-check-label" for="receive">Receive Offers From Our Partners</label>
+                                <input type="password" class="form-control" name="pword">
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="newsletter">
@@ -617,7 +613,7 @@
 										Subscribe To Our Newsletters Now And Stay Up-To-Date With New Collections, The Latest Lookbooks And Exclusive Offers.</label>
                             </div>
                             <div class="single-form">
-                                <button class="btn btn-primary">Register</button>
+                                <button class="btn btn-primary" type="submit" name="">Register</button>
                             </div>
                         </form>
                     </div>
