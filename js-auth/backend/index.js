@@ -19,8 +19,8 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'js_auth'
-});2
+  database: 'crm'
+});
 
 // STEP 5: Show that you've connected to the database
 connection.connect((err, connection) => {
@@ -32,9 +32,9 @@ connection.connect((err, connection) => {
 })
 
 // // Define routes
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, "../frontend/index.html"));
-// });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
+});
 
 // // Code to GET data to the database
 // app.get("/users", (req, res)=>{
