@@ -14,22 +14,22 @@ app.use(bp.json())
 // Serve static files from the "frontend" directory
 app.use(express.static(path.join(__dirname, '../frontend/frotend')));
 
-//STEP 4: code to connect to the database
-// const connection = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'js_auth'
-// });2
+// STEP 4: code to connect to the database
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'js_auth'
+});2
 
-// // STEP 5: Show that you've connected to the database
-// connection.connect((err, connection) => {
-//   if (err) {
-//     console.log(err)
-//   } else {
-//     console.log("Connected to the database")
-//   }
-// })
+// STEP 5: Show that you've connected to the database
+connection.connect((err, connection) => {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log("Connected to the database")
+  }
+})
 
 // // Define routes
 // app.get('/', (req, res) => {
