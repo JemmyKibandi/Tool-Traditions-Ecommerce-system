@@ -48,18 +48,18 @@ app.get('/', (req, res) => {
 //   }
 // )})
 // Code to insert data to the database
-// app.post('/register', (req, res) => {  
-//   const {newUserId = result.insertId,fname, phone, email, pword, actpword } = req.body;
-//   const sql = "INSERT INTO `users`(`user_id`, `fname`, `phone`, `email`, `pword`, `actpword`) VALUES (?, ?, ?, ?, ?, ?)";
-//   connection.query(sql, [newUserId, fname, phone, email, pword, actpword], (err, result) => {
-//     if (err) {
-//       console.error('Error inserting data:', err);
-//       res.status(500).send('Internal Server Error');
-//     } else {
-//       res.sendFile(path.join(__dirname, "../frontend/index.html"));
-//     }
-//   });
-// });
+app.post('/register', (req, res) => {  
+  const {newUserId = result.insertId,fname, phone, email, pword, actpword } = req.body;
+  const sql = "INSERT INTO `leads`(`lead_id`, `fname`, `lname`, `phone`, `email`, `property`, `referee`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]')INSERT INTO `users`(`user_id`, `fname`, `phone`, `email`, `pword`, `actpword`) VALUES (?, ?, ?, ?, ?, ?)";
+  connection.query(sql, [newUserId, fname, phone, email, pword, actpword], (err, result) => {
+    if (err) {
+      console.error('Error inserting data:', err);
+      res.status(500).send('Internal Server Error');
+    } else {
+      res.sendFile(path.join(__dirname, "../frontend/index.html"));
+    }
+  });
+});
 // ROUTE TO LOGOUT
 // app.post('/logout', (req, res) => {
 //   // Clear the user's session data
