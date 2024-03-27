@@ -38,7 +38,7 @@
             <div class="page-banner-content text-center">
                 <h2 class="page-banner-title">Register</h2>
                 <ul class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                     <li class="breadcrumb-item active">Register</li>
                 </ul>
             </div>
