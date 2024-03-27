@@ -1,8 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 
-<!-- Mirrored from htmldemo.net/ubani/ubani/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 12:27:45 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,30 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
-
-
-
-
-    <!-- CSS
-    ============================================ -->
-
-    <!-- Icon Font CSS -->
-    <!-- <link rel="stylesheet" href="assets/css/plugins/plazaicon.css">
-    <link rel="stylesheet" href="assets/css/plugins/fontawesome.min.css"> -->
-
-    <!-- Plugins CSS -->
-    <!-- <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/plugins/select2.min.css"> -->
-
-    <!-- Main Style CSS -->
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-
-
-    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
     <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
 
@@ -97,10 +73,12 @@
                                                 <!-- Single Cart Item Start -->
                                                 <div class="single-cart-item">
                                                     <div class="cart-thumb">
-                                                        <a href="#"><img src="assets/images/mini-cart/cart-1.jpg" alt=""></a>
+                                                        <a href="#"><img src="assets/images/mini-cart/cart-1.jpg"
+                                                                alt=""></a>
                                                     </div>
                                                     <div class="cart-item-content">
-                                                        <h6 class="product-name">Originals Kaval Windbreaker Winter Jacket</h6>
+                                                        <h6 class="product-name">Originals Kaval Windbreaker Winter
+                                                            Jacket</h6>
                                                         <span class="product-price">$19.12</span>
                                                         <div class="attributes-content">
                                                             <span><strong>Size:</strong> S </span>
@@ -115,10 +93,12 @@
                                                 <!-- Single Cart Item Start -->
                                                 <div class="single-cart-item">
                                                     <div class="cart-thumb">
-                                                        <a href="#"><img src="assets/images/mini-cart/cart-2.jpg" alt=""></a>
+                                                        <a href="#"><img src="assets/images/mini-cart/cart-2.jpg"
+                                                                alt=""></a>
                                                     </div>
                                                     <div class="cart-item-content">
-                                                        <h6 class="product-name">Fila Locker Room Varsity Jacket Comfortable</h6>
+                                                        <h6 class="product-name">Fila Locker Room Varsity Jacket
+                                                            Comfortable</h6>
                                                         <span class="product-price">$19.12</span>
                                                         <div class="attributes-content">
                                                             <span><strong>Size:</strong> S </span>
@@ -133,10 +113,12 @@
                                                 <!-- Single Cart Item Start -->
                                                 <div class="single-cart-item">
                                                     <div class="cart-thumb">
-                                                        <a href="#"><img src="assets/images/mini-cart/cart-1.jpg" alt=""></a>
+                                                        <a href="#"><img src="assets/images/mini-cart/cart-1.jpg"
+                                                                alt=""></a>
                                                     </div>
                                                     <div class="cart-item-content">
-                                                        <h6 class="product-name">New Balance Fresh Foam LAZR v1 Sport Sport Running</h6>
+                                                        <h6 class="product-name">New Balance Fresh Foam LAZR v1 Sport
+                                                            Sport Running</h6>
                                                         <span class="product-price">$19.12</span>
                                                         <div class="attributes-content">
                                                             <span><strong>Size:</strong> S </span>
@@ -183,11 +165,14 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <!-- Dropdown Language End -->
                                     <div class="dropdown-language">
-                                        <span class="selected"><img src="assets/images/flag/01.jpg" alt="">English</span>
+                                        <span class="selected"><img src="assets/images/flag/01.jpg"
+                                                alt="">English</span>
                                         <ul class="language-list">
                                             <li><a href="#"><img src="assets/images/flag/01.jpg" alt="">English</a></li>
-                                            <li><a href="#"><img src="assets/images/flag/02.jpg" alt=""> اللغة العربية</a></li>
-                                            <li><a href="#"><img src="assets/images/flag/03.jpg" alt=""> Spanish</a></li>
+                                            <li><a href="#"><img src="assets/images/flag/02.jpg" alt=""> اللغة
+                                                    العربية</a></li>
+                                            <li><a href="#"><img src="assets/images/flag/03.jpg" alt=""> Spanish</a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <!-- Dropdown Language End -->
@@ -317,8 +302,10 @@
                                     </li>
                                     <li><a href="#">Blog Details</a>
                                         <ul class="sub-menu">
-                                            <li><a href="blog-details-left-sidebar.html">Blog details Left Sidebar</a></li>
-                                            <li><a href="blog-details-right-sidebar.html">Blog details Right Sidebar</a></li>
+                                            <li><a href="blog-details-left-sidebar.html">Blog details Left Sidebar</a>
+                                            </li>
+                                            <li><a href="blog-details-right-sidebar.html">Blog details Right Sidebar</a>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -334,8 +321,6 @@
 
     </div>
     <!-- Header End -->
-
-
     <!-- Header Mobile Start -->
     <div class="header-mobile section d-lg-none">
 
@@ -380,11 +365,14 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <!-- Dropdown Language End -->
                                     <div class="dropdown-language">
-                                        <span class="selected"><img src="assets/images/flag/01.jpg" alt="">English</span>
+                                        <span class="selected"><img src="assets/images/flag/01.jpg"
+                                                alt="">English</span>
                                         <ul class="language-list">
                                             <li><a href="#"><img src="assets/images/flag/01.jpg" alt="">English</a></li>
-                                            <li><a href="#"><img src="assets/images/flag/02.jpg" alt=""> اللغة العربية</a></li>
-                                            <li><a href="#"><img src="assets/images/flag/03.jpg" alt=""> Spanish</a></li>
+                                            <li><a href="#"><img src="assets/images/flag/02.jpg" alt=""> اللغة
+                                                    العربية</a></li>
+                                            <li><a href="#"><img src="assets/images/flag/03.jpg" alt=""> Spanish</a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <!-- Dropdown Language End -->
@@ -440,8 +428,6 @@
 
     </div>
     <!-- Header Mobile End -->
-
-
     <!-- off Canvas Start -->
     <div class="off-canvas-box">
         <div class="canvas-action">
@@ -553,10 +539,7 @@
         </div>
     </div>
     <!-- off Canvas End -->
-
     <div class="menu-overlay"></div>
-
-
     <!-- Page Banner Start -->
     <div class="page-banner-section section">
         <div class="container">
@@ -589,15 +572,15 @@
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Last Name</label>
-                                <input type="text" class="form-control"  name="lname">
+                                <input type="text" class="form-control" name="lname">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Email Address *</label>
-                                <input type="text" class="form-control"  name="email">
+                                <input type="text" class="form-control" name="email">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Username *</label>
-                                <input type="text" class="form-control"  name="username">
+                                <input type="text" class="form-control" name="username">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Password</label>
@@ -610,7 +593,8 @@
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="newsletter">
                                 <label class="form-check-label" for="newsletter">Sign Up For Our Newsletter <br>
-										Subscribe To Our Newsletters Now And Stay Up-To-Date With New Collections, The Latest Lookbooks And Exclusive Offers.</label>
+                                    Subscribe To Our Newsletters Now And Stay Up-To-Date With New Collections, The
+                                    Latest Lookbooks And Exclusive Offers.</label>
                             </div>
                             <div class="single-form">
                                 <button class="btn btn-primary" type="submit" name="">Register</button>
@@ -639,8 +623,10 @@
                             <div class="footer-widget">
                                 <a href="#"><img src="assets/images/logo-white.png" alt=""></a>
                                 <div class="footer-widget-text">
-                                    <p class="desc">We are a team of designers and developers that create high quality Magento, Prestashop, Opencart.</p>
-                                    <p><strong>Address :</strong> 6688Princess Road, London, Greater London BAS 23JK, UK</p>
+                                    <p class="desc">We are a team of designers and developers that create high quality
+                                        Magento, Prestashop, Opencart.</p>
+                                    <p><strong>Address :</strong> 6688Princess Road, London, Greater London BAS 23JK, UK
+                                    </p>
                                     <p><strong>Phone :</strong> (012) 800 456 789-987</p>
                                     <p><strong>Email :</strong> contact@example.com</p>
                                 </div>
@@ -722,7 +708,8 @@
             <div class="container">
                 <div class="copyright-payment-method">
                     <div class="copyright-text">
-                        <p>&copy; 2021 <span> Tourve </span> Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://hasthemes.com/" target="_blank">HasThemes</a></p>
+                        <p>&copy; 2021 <span> Tourve </span> Made with <i class="fa fa-heart" aria-hidden="true"></i> by
+                            <a href="https://hasthemes.com/" target="_blank">HasThemes</a></p>
                     </div>
                     <div class="payment-method">
                         <img src="assets/images/payment.png" alt="">
@@ -742,29 +729,9 @@
     </a>
     <!--Back To End-->
 
-
-
-
-    <!-- JS
-    ============================================ -->
-
     <!-- Modernizer & jQuery JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-
-    <!-- Bootstrap JS -->
-    <!-- <script src="assets/js/plugins/popper.min.js"></script>
-    <script src="assets/js/plugins/bootstrap.min.js"></script> -->
-
-    <!-- Plugins JS -->
-    <!-- <script src="assets/js/plugins/swiper-bundle.min.js"></script>
-    <script src="assets/js/plugins/jquery-ui.min.js"></script>
-    <script src="assets/js/plugins/jquery.zoom.min.js"></script>
-    <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/plugins/select2.min.js"></script>
-    <script src="assets/js/plugins/ajax-contact.js"></script> -->
-
-    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
     <script src="assets/js/plugins.min.js"></script>
 
 
@@ -775,5 +742,4 @@
 </body>
 
 
-<!-- Mirrored from htmldemo.net/ubani/ubani/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 12:27:45 GMT -->
 </html>
