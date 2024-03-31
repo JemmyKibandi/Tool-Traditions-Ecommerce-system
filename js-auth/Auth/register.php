@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Ubani- Barber Shop Bootstrap 5 Template</title>
+    <title>Tool Traditions Power Tools</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,34 +19,13 @@
 </head>
 
 <body>
-    <!-- Header Start -->
-    <?php include_once('headerNormal.php'); ?>
-
-    <!-- Header End -->
-    <!-- Header Mobile Start -->
-    <?php include_once('headerPhone.php'); ?>
-    <!-- Header Mobile End -->
-    <!-- off Canvas Start -->
-    <?php include_once('topPart.php'); ?>
-    <!-- off Canvas End -->
-
-    <div class="menu-overlay"></div>
-    <!-- Page Banner Start -->
-    <div class="page-banner-section section">
-        <div class="container">
-            <!-- Pager Banner Start -->
-            <div class="page-banner-content text-center">
-                <h2 class="page-banner-title">Register</h2>
-                <ul class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active">Register</li>
-                </ul>
-            </div>
-            <!-- Pager Banner End -->
-        </div>
-    </div>
-    <!-- Page Banner End -->
-
+    <header>
+        <!-- Page Banner End -->
+        <?php if (isset($_SESSION['succ'])) { echo "SUCCESS";
+   } ?>
+        <?php if (isset($_SESSION['err'])) { echo "ERROR";
+   } ?>
+    </header>
     <!-- Register Section Start -->
     <div class="section section-padding mt-n2">
         <div class="container">
@@ -58,37 +37,25 @@
                         <p>Already have an account? <a href="login.html">Log in instead!</a></p>
                         <form action="server.php" method="post" type="multipart form">
                             <div class="single-form">
-                                <label class="form-label">First Name</label>
+                                <label class="form-label">Full Name</label>
                                 <input type="text" class="form-control" name="fname">
-                            </div>
-                            <div class="single-form">
-                                <label class="form-label">Last Name</label>
-                                <input type="text" class="form-control" name="lname">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Email Address *</label>
                                 <input type="text" class="form-control" name="email">
                             </div>
                             <div class="single-form">
-                                <label class="form-label">Username *</label>
-                                <input type="text" class="form-control" name="username">
-                            </div>
-                            <div class="single-form">
                                 <label class="form-label">Password</label>
-                                <input type="password" class="form-control" name="pword">
+                                <input type="password" class="form-control" id="password" name="pword">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" name="pword">
+                                <input type="password" class="form-control" id="confirmPassword" name="pword">
                             </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="newsletter">
-                                <label class="form-check-label" for="newsletter">Sign Up For Our Newsletter <br>
-                                    Subscribe To Our Newsletters Now And Stay Up-To-Date With New Collections, The
-                                    Latest Lookbooks And Exclusive Offers.</label>
-                            </div>
+                            <!-- Inline CSS for the message -->
+                            <p id="message" style="color: red; display: none;"></p>
                             <div class="single-form">
-                                <button class="btn btn-primary" type="submit" name="">Register</button>
+                                <button class="btn btn-primary" type="submit" name="register">Register</button>
                             </div>
                         </form>
                     </div>
@@ -108,7 +75,30 @@
     <a href="#" class="back-to-top">
         <i class="icon-chevron-up"></i>
     </a>
+    <script>
+    const form = document.getElementById('registrationForm');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirmPassword');
+    const message = document.getElementById('message');
 
+    function checkPassword() {
+        if (password.value === confirmPassword.value) {
+            message.style.display = 'none';
+            return true;
+        } else {
+            message.style.display = 'block';
+            message.textContent = 'Passwords do not match!';
+            return false;
+        }
+    }
+    form.addEventListener('submit', function(event) {
+        if (!checkPassword()) {
+            event.preventDefault(); // Prevent form submission
+        }
+    });
+    password.addEventListener('input', checkPassword);
+    confirmPassword.addEventListener('input', checkPassword);
+    </script>
     <!-- Modernizer & jQuery JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>

@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start(); 
+require_once '../frontend/frotend/dbcon.php';
+if (!isset($_SESSION['user_id'])) {
+    header('location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Ubani- Barber Shop Bootstrap 5 Template</title>
+    <title>Tool Traditions Power Tools</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
