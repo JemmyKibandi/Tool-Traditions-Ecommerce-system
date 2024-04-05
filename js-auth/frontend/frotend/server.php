@@ -1,51 +1,6 @@
 <?php
 require_once 'dbcon.php';
 
-if (isset($_REQUEST['product_upload_data'])) {
-    // Retrieve form data
-    $productName = $_POST["product_name"];
-    $productTag = $_POST["product_tag"];
-    $productCategory = $_POST["product_category"];
-    $productDescription = $_POST["product_description"];
-
-    // Perform any necessary validation here
-
-    // File upload handling
-    $uploadDirectory = "uploads/"; // Specify the directory where you want to store the uploaded files
-    $uploadedFiles = array();
-
-    if (!empty($_FILES['files']['name'][0])) {
-        foreach ($_FILES['files']['name'] as $key => $name) {
-            $fileTmpName = $_FILES['files']['tmp_name'][$key];
-            $fileType = $_FILES['files']['type'][$key];
-            $fileName = basename($name);
-            $fileDestination = $uploadDirectory . $fileName;
-
-            if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                array_push($uploadedFiles, $fileName);
-            }
-        }
-    }
-    // Implode uploaded files array into a comma-separated string
-    $uploadedFilesString = implode("::", $uploadedFiles);
-
-    // Prepare and bind the SQL statement
-    $stmt = $db->prepare("INSERT INTO medical_products (product_name, product_tag, product_category, product_desc, product_images) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $productName, $productTag, $productCategory, $productDescription, $uploadedFilesString);
-
-    // Execute the statement
-    if ($stmt->execute()) {
-        $_SESSION['succ'] = "Product Successfully Added";
-        header('location: shop.php');
-    } else {
-        $_SESSION['err'] = "Product Unsuccessfully Added";
-        header('location: shop.php');
-    }
-
-    // Close db$dbection
-    $stmt->close();
-    $db->close();
-}
 if (isset($_POST['inquire_data'])) {
     $name = mysqli_real_escape_string($db, $_POST['name']);
     $email = mysqli_real_escape_string($db, $_POST['email']);

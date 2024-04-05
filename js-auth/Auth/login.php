@@ -60,7 +60,6 @@ require_once 'dbcon.php';
                                 <button class="btn btn-primary" type="submit" name="login">Login</button>
                             </div>
                         </form>
-                        <p><a href="#">Lost your password?</a></p>
                         <p>No account? <a class="btn" href="register.php">Create one here.</a></p>
                     </div>
                     <!-- Login & Register End -->

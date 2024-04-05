@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start(); 
+require_once '../frontend/frotend/dbcon.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,27 +58,46 @@
                     </div>
                 </div>
             </div>
-
+            <button
+                style="background-color: #a9a9a9; padding: 5px 10px; margin-left: 10px; border-radius: 15px; border: none;"
+                data-bs-toggle="modal" data-bs-target="#quickView">
+                Add Product
+            </button>
             <table
                 style="width: 100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; border: 5px solid black;">
                 <thead>
                     <tr style="background-color: #f2f2f2;">
-                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Header 1</th>
-                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Header 2</th>
-                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Header 3</th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Name</th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Amount</th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Category</th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Description
+                        </th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Image</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php 
+                   $sql = "SELECT * FROM product";
+                   $result = $db->query($sql);
+                   
+                   if ($result->num_rows > 0) {
+                       // Output data of each row using a while loop
+                       while ($row = $result->fetch_assoc()) { ?>
                     <tr style="background-color: #ffffff;">
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 1</td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 2</td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 3</td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["name"] ;?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["amount"] ;?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["category"] ;?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["description"] ;?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["uploaded_files"] ;?>
+                        </td>
                     </tr>
-                    <tr style="background-color: #f2f2f2;">
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 4</td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 5</td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 6</td>
-                    </tr>
+                    <?php
+                       }
+                   } else {
+                       echo "0 results";
+                   }
+                   
+                   ?>
                 </tbody>
             </table>
         </div>
@@ -97,6 +118,111 @@
     <script src="../frontend/frotend/assets/js/main.js"></script>
 
 
+</body>
+<!-- Quick View Start -->
+<div class="modal fade" id="quickView">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="server.php" method="post" type="multipart form">
+                            <div class="mb-3">
+                                <label for="productName" class="form-label">Product Name</label>
+                                <input type="text" class="form-control" id="productName" name="productName"
+                                    placeholder="Enter product name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="productDesc" class="form-label">Description</label>
+                                <textarea class="form-control" id="productDesc" rows="3" name="productDesc"
+                                    placeholder="Enter product description"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productCategory" class="form-label">Category</label>
+                                <input type="text" class="form-control" id="productCategory" name="productCategory"
+                                    placeholder="Enter product category">
+                            </div>
+                            <div class="mb-3">
+                                <label for="productAmount" class="form-label">Amount</label>
+                                <input type="number" step="0.01" class="form-control" id="productAmount"
+                                    name="productAmount" name="productAmount" placeholder="Enter product amount">
+                            </div>
+                            <div class="mb-3">
+                                <label for="productImages" class="form-label">Product Images</label>
+                                <input type="file" name="files[]" class="form-control" multiple
+                                    accept="image/jpeg, image/jpg, image/png" />
+                            </div>
+                            <div style="text-align: center; margin-top: 2rem;">
+                                <button type="submit" name="product_upload_data"
+                                    style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
+                                    UPLOAD
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+var selectedImages = [];
+
+function allowDrop(event) {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = "copy";
+}
+
+function drop(event) {
+    event.preventDefault();
+    var files = event.dataTransfer.files || event.target.files;
+    handleFiles(files);
+}
+
+function handleFiles(files) {
+    var dropzone = document.getElementById('dropzone');
+    if (files && files.length > 0) {
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            if (file.type.match('image.*')) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var imgSrc = e.target.result;
+                    var imgElement = document.createElement('img');
+                    imgElement.src = imgSrc;
+                    imgElement.style.width = '100px';
+                    imgElement.style.height = '100px';
+                    imgElement.style.margin = '5px';
+                    imgElement.style.border = '2px solid green'; // Applying the green border
+                    imgElement.style.borderRadius = '10px'; // Rounded border
+                    imgElement.className = 'uploaded-image';
+                    var closeButton = document.createElement('button');
+                    closeButton.innerHTML = 'x';
+                    closeButton.style.marginLeft = '5px';
+                    closeButton.style.cursor = 'pointer';
+                    closeButton.onclick = function() {
+                        var index = selectedImages.indexOf(imgSrc);
+                        if (index !== -1) {
+                            selectedImages.splice(index, 1);
+                        }
+                        dropzone.removeChild(imgElement);
+                        dropzone.removeChild(closeButton);
+                    };
+                    selectedImages.push(imgSrc);
+                    dropzone.appendChild(imgElement);
+                    dropzone.appendChild(closeButton);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please select only image files.');
+            }
+        }
+    }
+}
+</script>
 </body>
 
 </html>

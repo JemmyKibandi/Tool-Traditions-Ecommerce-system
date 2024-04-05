@@ -1,7 +1,8 @@
 <?php session_start(); 
 require_once '../frontend/frotend/dbcon.php';
 if (!isset($_SESSION['user_id'])) {
-    header('location: login.php');
+    header('location: ../Auth/login.php
+    ');
     exit();
 }
 ?>
