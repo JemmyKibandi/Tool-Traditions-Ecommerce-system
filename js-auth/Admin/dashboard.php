@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../frontend/frotend/assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../frontend/frotend/assets/img/favicon.png">
     <link rel="stylesheet" href="../frontend/frotend/assets/css/vendor/plugins.min.css">
     <link rel="stylesheet" href="../frontend/frotend/assets/css/style.min.css">
 

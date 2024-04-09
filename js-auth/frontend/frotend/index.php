@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
 
@@ -38,7 +38,7 @@
             <div class="swiper-wrapper">
                 <!-- Single Slider Start -->
                 <div class="single-slider swiper-slide animation-style-01"
-                    style="background-image: url(assets/images/slider/slider-01.jpg);">
+                    style="background-image: url(assets/img/slider/slider-01.jpg);">
                     <div class="container">
                         <!-- Slider Content Start -->
                         <div class="slider-content">
@@ -53,7 +53,7 @@
                 <!-- Single Slider End -->
                 <!-- Single Slider Start -->
                 <div class="single-slider swiper-slide animation-style-01"
-                    style="background-image: url(assets/images/slider/slider-02.jpg);">
+                    style="background-image: url(assets/img/slider/slider-02.jpg);">
                     <div class="container">
                         <!-- Slider Content Start -->
                         <div class="slider-content">
@@ -83,7 +83,7 @@
             <div class="row justify-content-between">
                 <div class="col-lg-4">
                     <div class="about-image">
-                        <img src="assets/images/about.jpg" alt="">
+                        <img src="assets/img/about.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -98,7 +98,7 @@
                                 source. Lorem Ipsum comes from sections Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Facilis distinctio sunt exercitationem. <a href="#">Learn More</a></p>
                         </div>
-                        <img src="assets/images/about-text.png" alt="">
+                        <img src="assets/img/about-text.png" alt="">
                     </div>
                 </div>
             </div>
@@ -125,8 +125,8 @@
                             <div class="product-item">
                                 <div class="image-block">
                                     <a href="shop-single.html">
-                                        <img src="assets/images/product/prduct-13.jpg" alt="">
-                                        <img class="image-hover" src="assets/images/product/prduct-12.jpg" alt="">
+                                        <img src="assets/img/product/prduct-13.jpg" alt="">
+                                        <img class="image-hover" src="assets/img/product/prduct-12.jpg" alt="">
                                     </a>
                                     <div class="product-label">
                                         <span class="new">New</span>
@@ -179,7 +179,7 @@
                         <!-- Banner Box Start -->
                         <div class="banner-box">
                             <a href="shop-grid-left-sidebar.html">
-                                <img src="assets/images/banner/banner-01.jpg" alt="">
+                                <img src="assets/img/banner/banner-01.jpg" alt="">
                             </a>
                         </div>
                         <!-- Banner Box End -->
@@ -188,7 +188,7 @@
                         <!-- Banner Box Start -->
                         <div class="banner-box">
                             <a href="shop-grid-left-sidebar.html">
-                                <img src="assets/images/banner/banner-02.jpg" alt="">
+                                <img src="assets/img/banner/banner-02.jpg" alt="">
                             </a>
                         </div>
                         <!-- Banner Box End -->
@@ -197,7 +197,7 @@
                         <!-- Banner Box Start -->
                         <div class="banner-box">
                             <a href="shop-grid-left-sidebar.html">
-                                <img src="assets/images/banner/banner-03.jpg" alt="">
+                                <img src="assets/img/banner/banner-03.jpg" alt="">
                             </a>
                         </div>
                         <!-- Banner Box End -->
@@ -231,8 +231,8 @@
                                         <div class="product-item">
                                             <div class="image-block">
                                                 <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-13.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-12.jpg"
+                                                    <img src="assets/img/product/prduct-13.jpg" alt="">
+                                                    <img class="image-hover" src="assets/img/product/prduct-12.jpg"
                                                         alt="">
                                                 </a>
                                                 <div class="product-label">
@@ -286,8 +286,8 @@
                                         <div class="product-item">
                                             <div class="image-block">
                                                 <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-13.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-12.jpg"
+                                                    <img src="assets/img/product/prduct-13.jpg" alt="">
+                                                    <img class="image-hover" src="assets/img/product/prduct-12.jpg"
                                                         alt="">
                                                 </a>
                                                 <div class="product-label">
@@ -341,8 +341,8 @@
                                         <div class="product-item">
                                             <div class="image-block">
                                                 <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-13.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-12.jpg"
+                                                    <img src="assets/img/product/prduct-13.jpg" alt="">
+                                                    <img class="image-hover" src="assets/img/product/prduct-12.jpg"
                                                         alt="">
                                                 </a>
                                                 <div class="product-label">
@@ -417,31 +417,31 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="single-img">
-                                                <img src="assets/images/shop-single/shop-single-01.jpg"
+                                                <img src="assets/img/shop-single/shop-single-01.jpg"
                                                     alt="Product Image">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="single-img">
-                                                <img src="assets/images/shop-single/shop-single-02.jpg"
+                                                <img src="assets/img/shop-single/shop-single-02.jpg"
                                                     alt="Product Image">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="single-img">
-                                                <img src="assets/images/shop-single/shop-single-03.jpg"
+                                                <img src="assets/img/shop-single/shop-single-03.jpg"
                                                     alt="Product Image">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="single-img">
-                                                <img src="assets/images/shop-single/shop-single-04.jpg"
+                                                <img src="assets/img/shop-single/shop-single-04.jpg"
                                                     alt="Product Image">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="single-img">
-                                                <img src="assets/images/shop-single/shop-single-05.jpg"
+                                                <img src="assets/img/shop-single/shop-single-05.jpg"
                                                     alt="Product Image">
                                             </div>
                                         </div>
@@ -453,23 +453,23 @@
                                 <div class="quick-view-slider-nav swiper-container">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img src="assets/images/shop-single/shop-single-01.jpg"
+                                            <img src="assets/img/shop-single/shop-single-01.jpg"
                                                 alt="Product Thumnail">
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="assets/images/shop-single/shop-single-02.jpg"
+                                            <img src="assets/img/shop-single/shop-single-02.jpg"
                                                 alt="Product Thumnail">
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="assets/images/shop-single/shop-single-03.jpg"
+                                            <img src="assets/img/shop-single/shop-single-03.jpg"
                                                 alt="Product Thumnail">
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="assets/images/shop-single/shop-single-04.jpg"
+                                            <img src="assets/img/shop-single/shop-single-04.jpg"
                                                 alt="Product Thumnail">
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="assets/images/shop-single/shop-single-05.jpg"
+                                            <img src="assets/img/shop-single/shop-single-05.jpg"
                                                 alt="Product Thumnail">
                                         </div>
                                     </div>

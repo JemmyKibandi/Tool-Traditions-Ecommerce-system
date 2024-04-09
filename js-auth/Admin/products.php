@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start();
 require_once '../frontend/frotend/dbcon.php';
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ require_once '../frontend/frotend/dbcon.php';
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../frontend/frotend/assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../frontend/frotend/assets/img/favicon.png">
     <link rel="stylesheet" href="../frontend/frotend/assets/css/vendor/plugins.min.css">
     <link rel="stylesheet" href="../frontend/frotend/assets/css/style.min.css">
 
@@ -76,28 +76,30 @@ require_once '../frontend/frotend/dbcon.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
-                   $sql = "SELECT * FROM product";
-                   $result = $db->query($sql);
-                   
-                   if ($result->num_rows > 0) {
-                       // Output data of each row using a while loop
-                       while ($row = $result->fetch_assoc()) { ?>
+                    <?php
+                    $sql = "SELECT * FROM product";
+                    $result = $db->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $imagePaths = explode('::', $row['uploaded_files']);
+                            $firstImagePath = trim($imagePaths[0]);
+                    ?>
                     <tr style="background-color: #ffffff;">
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["name"] ;?></td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["amount"] ;?></td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["category"] ;?></td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["description"] ;?></td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["uploaded_files"] ;?>
-                        </td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["name"]; ?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["amount"]; ?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["category"]; ?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["description"]; ?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><img
+                                src="<?php echo $firstImagePath; ?>"></td>
                     </tr>
                     <?php
-                       }
-                   } else {
-                       echo "0 results";
-                   }
-                   
-                   ?>
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -149,7 +151,7 @@ require_once '../frontend/frotend/dbcon.php';
                                     name="productAmount" name="productAmount" placeholder="Enter product amount">
                             </div>
                             <div class="mb-3">
-                                <label for="productImages" class="form-label">Product Images</label>
+                                <label for="productimg" class="form-label">Product img</label>
                                 <input type="file" name="files[]" class="form-control" multiple
                                     accept="image/jpeg, image/jpg, image/png" />
                             </div>
@@ -169,7 +171,7 @@ require_once '../frontend/frotend/dbcon.php';
 </div>
 
 <script>
-var selectedImages = [];
+var selectedimg = [];
 
 function allowDrop(event) {
     event.preventDefault();
@@ -204,14 +206,14 @@ function handleFiles(files) {
                     closeButton.style.marginLeft = '5px';
                     closeButton.style.cursor = 'pointer';
                     closeButton.onclick = function() {
-                        var index = selectedImages.indexOf(imgSrc);
+                        var index = selectedimg.indexOf(imgSrc);
                         if (index !== -1) {
-                            selectedImages.splice(index, 1);
+                            selectedimg.splice(index, 1);
                         }
                         dropzone.removeChild(imgElement);
                         dropzone.removeChild(closeButton);
                     };
-                    selectedImages.push(imgSrc);
+                    selectedimg.push(imgSrc);
                     dropzone.appendChild(imgElement);
                     dropzone.appendChild(closeButton);
                 };

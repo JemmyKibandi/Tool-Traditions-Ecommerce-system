@@ -21,7 +21,7 @@
 
                     <!-- Header Logo Start -->
                     <div class="header-logo text-center">
-                        <a href="index.php"><img src="assets/images/logo.png" alt=""></a>
+                        <a href="index.php"><img src="assets/img/logo.png" alt=""></a>
                     </div>
                     <!-- Header Logo End -->
 

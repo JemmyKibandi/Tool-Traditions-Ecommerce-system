@@ -8,7 +8,7 @@ if (isset($_POST['product_upload_data'])) {
     $productDescription = $_POST["productDesc"];
     $productAmount = $_POST["productAmount"];
 
-    $uploadDirectory = "uploads/";
+    $uploadDirectory = "img/";
     $uploadedFiles = array();
 
     if (!empty($_FILES['files']['name'][0])) {

@@ -22,7 +22,7 @@
 
                     <!-- Header Logo Start -->
                     <div class="header-logo text-center">
-                        <a href="index.php"><img src="assets/images/logo.png" alt=""></a>
+                        <a href="index.php"><img src="assets/img/logo.png" alt=""></a>
                     </div>
                     <!-- Header Logo End -->
 
@@ -42,12 +42,12 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <!-- Dropdown Language End -->
                                 <div class="dropdown-language">
-                                    <span class="selected"><img src="assets/images/flag/01.jpg" alt="">English</span>
+                                    <span class="selected"><img src="assets/img/flag/01.jpg" alt="">English</span>
                                     <ul class="language-list">
-                                        <li><a href="#"><img src="assets/images/flag/01.jpg" alt="">English</a></li>
-                                        <li><a href="#"><img src="assets/images/flag/02.jpg" alt=""> اللغة
+                                        <li><a href="#"><img src="assets/img/flag/01.jpg" alt="">English</a></li>
+                                        <li><a href="#"><img src="assets/img/flag/02.jpg" alt=""> اللغة
                                                 العربية</a></li>
-                                        <li><a href="#"><img src="assets/images/flag/03.jpg" alt=""> Spanish</a>
+                                        <li><a href="#"><img src="assets/img/flag/03.jpg" alt=""> Spanish</a>
                                         </li>
                                     </ul>
                                 </div>

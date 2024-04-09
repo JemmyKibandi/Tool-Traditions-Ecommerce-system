@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
 
@@ -99,8 +99,8 @@
                                         <div class="product-item">
                                             <div class="image-block">
                                                 <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-13.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-12.jpg"
+                                                    <img src="assets/img/product/prduct-13.jpg" alt="">
+                                                    <img class="image-hover" src="assets/img/product/prduct-12.jpg"
                                                         alt="">
                                                 </a>
                                                 <div class="product-label">
@@ -147,8 +147,8 @@
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
                                         <a href="shop-single.html">
-                                            <img src="assets/images/product/prduct-13.jpg" alt="">
-                                            <img class="image-hover" src="assets/images/product/prduct-12.jpg" alt="">
+                                            <img src="assets/img/product/prduct-13.jpg" alt="">
+                                            <img class="image-hover" src="assets/img/product/prduct-12.jpg" alt="">
                                         </a>
                                         <div class="product-label">
                                             <span class="new">New</span>
@@ -192,8 +192,8 @@
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
                                         <a href="shop-single.html">
-                                            <img src="assets/images/product/prduct-12.jpg" alt="">
-                                            <img class="image-hover" src="assets/images/product/prduct-07.jpg" alt="">
+                                            <img src="assets/img/product/prduct-12.jpg" alt="">
+                                            <img class="image-hover" src="assets/img/product/prduct-07.jpg" alt="">
                                         </a>
                                         <div class="product-label">
                                             <span class="new">New</span>
@@ -237,8 +237,8 @@
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
                                         <a href="shop-single.html">
-                                            <img src="assets/images/product/prduct-07.jpg" alt="">
-                                            <img class="image-hover" src="assets/images/product/prduct-12.jpg" alt="">
+                                            <img src="assets/img/product/prduct-07.jpg" alt="">
+                                            <img class="image-hover" src="assets/img/product/prduct-12.jpg" alt="">
                                         </a>
                                         <div class="product-label">
                                             <span class="new">New</span>
@@ -282,8 +282,8 @@
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
                                         <a href="shop-single.html">
-                                            <img src="assets/images/product/prduct-06.jpg" alt="">
-                                            <img class="image-hover" src="assets/images/product/prduct-09.jpg" alt="">
+                                            <img src="assets/img/product/prduct-06.jpg" alt="">
+                                            <img class="image-hover" src="assets/img/product/prduct-09.jpg" alt="">
                                         </a>
                                         <div class="product-label">
                                             <span class="new">New</span>
@@ -327,8 +327,8 @@
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
                                         <a href="shop-single.html">
-                                            <img src="assets/images/product/prduct-09.jpg" alt="">
-                                            <img class="image-hover" src="assets/images/product/prduct-08.jpg" alt="">
+                                            <img src="assets/img/product/prduct-09.jpg" alt="">
+                                            <img class="image-hover" src="assets/img/product/prduct-08.jpg" alt="">
                                         </a>
                                         <div class="product-label">
                                             <span class="new">New</span>
@@ -372,8 +372,8 @@
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
                                         <a href="shop-single.html">
-                                            <img src="assets/images/product/prduct-08.jpg" alt="">
-                                            <img class="image-hover" src="assets/images/product/prduct-11.jpg" alt="">
+                                            <img src="assets/img/product/prduct-08.jpg" alt="">
+                                            <img class="image-hover" src="assets/img/product/prduct-11.jpg" alt="">
                                         </a>
                                         <div class="product-label">
                                             <span class="new">New</span>
@@ -417,8 +417,8 @@
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
                                         <a href="shop-single.html">
-                                            <img src="assets/images/product/prduct-11.jpg" alt="">
-                                            <img class="image-hover" src="assets/images/product/prduct-03.jpg" alt="">
+                                            <img src="assets/img/product/prduct-11.jpg" alt="">
+                                            <img class="image-hover" src="assets/img/product/prduct-03.jpg" alt="">
                                         </a>
                                         <div class="product-label">
                                             <span class="new">New</span>
@@ -462,7 +462,7 @@
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
                                         <a href="shop-single.html">
-                                            <img src="assets/images/product/prduct-03.jpg" alt="">
+                                            <img src="assets/img/product/prduct-03.jpg" alt="">
                                         </a>
                                         <div class="product-label">
                                             <span class="new">New</span>
@@ -506,8 +506,8 @@
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
                                         <a href="shop-single.html">
-                                            <img src="assets/images/product/prduct-02.jpg" alt="">
-                                            <img class="image-hover" src="assets/images/product/prduct-01.jpg" alt="">
+                                            <img src="assets/img/product/prduct-02.jpg" alt="">
+                                            <img class="image-hover" src="assets/img/product/prduct-01.jpg" alt="">
                                         </a>
                                         <div class="product-label">
                                             <span class="new">New</span>
@@ -551,8 +551,8 @@
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
                                         <a href="shop-single.html">
-                                            <img src="assets/images/product/prduct-05.jpg" alt="">
-                                            <img class="image-hover" src="assets/images/product/prduct-04.jpg" alt="">
+                                            <img src="assets/img/product/prduct-05.jpg" alt="">
+                                            <img class="image-hover" src="assets/img/product/prduct-04.jpg" alt="">
                                         </a>
                                         <div class="product-label">
                                             <span class="new">New</span>

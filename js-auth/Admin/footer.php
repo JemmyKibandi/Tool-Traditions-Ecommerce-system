@@ -10,7 +10,7 @@
 
                         <!-- footer Widget Start -->
                         <div class="footer-widget">
-                            <a href="#"><img src="assets/images/logo-white.png" alt=""></a>
+                            <a href="#"><img src="assets/img/logo-white.png" alt=""></a>
                             <div class="footer-widget-text">
                                 <p class="desc">We are a team of designers and developers that create high quality
                                     Magento, Prestashop, Opencart.</p>
@@ -102,7 +102,7 @@
                     </p>
                 </div>
                 <div class="payment-method">
-                    <img src="assets/images/payment.png" alt="">
+                    <img src="assets/img/payment.png" alt="">
                 </div>
             </div>
         </div>
