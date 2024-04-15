@@ -67,12 +67,13 @@ require_once '../frontend/frotend/dbcon.php';
                 style="width: 100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; border: 5px solid black;">
                 <thead>
                     <tr style="background-color: #f2f2f2;">
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Image
+                        </th>
                         <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Name</th>
                         <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Amount</th>
                         <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Category</th>
                         <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Description
                         </th>
-                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Image</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,16 +83,16 @@ require_once '../frontend/frotend/dbcon.php';
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            $imagePaths = explode('::', $row['uploaded_files']);
-                            $firstImagePath = trim($imagePaths[0]);
                     ?>
                     <tr style="background-color: #ffffff;">
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">
+                            <img src="img/ICON.jpg" style="width: 20px; height: 30px; border-radius: 50%;">
+                        </td>
                         <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["name"]; ?></td>
                         <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["amount"]; ?></td>
                         <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["category"]; ?></td>
                         <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["description"]; ?></td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><img
-                                src="<?php echo $firstImagePath; ?>"></td>
+
                     </tr>
                     <?php
                         }
@@ -149,11 +150,6 @@ require_once '../frontend/frotend/dbcon.php';
                                 <label for="productAmount" class="form-label">Amount</label>
                                 <input type="number" step="0.01" class="form-control" id="productAmount"
                                     name="productAmount" name="productAmount" placeholder="Enter product amount">
-                            </div>
-                            <div class="mb-3">
-                                <label for="productimg" class="form-label">Product img</label>
-                                <input type="file" name="files[]" class="form-control" multiple
-                                    accept="image/jpeg, image/jpg, image/png" />
                             </div>
                             <div style="text-align: center; margin-top: 2rem;">
                                 <button type="submit" name="product_upload_data"

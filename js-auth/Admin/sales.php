@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+require_once '../frontend/frotend/dbcon.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +48,7 @@
                             <div class="header-search" style="text-align: right;">
                                 <input type="text"
                                     style="background-color: #d7b9ff; padding: 5px 10px; border-radius: 15px; border: none;"
-                                    placeholder="Search a sale">
+                                    placeholder="Search for a Sale">
                                 <button
                                     style="background-color: #d7b9ff; padding: 5px 10px; border-radius: 15px; border: none;"><i
                                         class="icon-search"></i></button>
@@ -56,27 +58,49 @@
                     </div>
                 </div>
             </div>
-
+            <button
+                style="background-color: #a9a9a9; padding: 5px 10px; margin-left: 10px; border-radius: 15px; border: none;"
+                data-bs-toggle="modal" data-bs-target="#quickView">
+                Add Sales
+            </button>
             <table
                 style="width: 100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; border: 5px solid black;">
                 <thead>
                     <tr style="background-color: #f2f2f2;">
-                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Header 1</th>
-                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Header 2</th>
-                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Header 3</th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Image
+                        </th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Name</th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Amount</th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Category</th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Description
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                    $sql = "SELECT * FROM product";
+                    $result = $db->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                    ?>
                     <tr style="background-color: #ffffff;">
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 1</td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 2</td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 3</td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">
+                            <img src="img/ICON.jpg" style="width: 20px; height: 30px; border-radius: 50%;">
+                        </td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["name"]; ?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["amount"]; ?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["category"]; ?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["description"]; ?></td>
+
                     </tr>
-                    <tr style="background-color: #f2f2f2;">
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 4</td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 5</td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Data 6</td>
-                    </tr>
+                    <?php
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -96,7 +120,49 @@
     <!-- Main JS -->
     <script src="../frontend/frotend/assets/js/main.js"></script>
 
+    <!-- Quick View Start -->
+    <div class="modal fade" id="quickView">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form action="server.php" method="post" type="multipart form">
+                                <div class="mb-3">
+                                    <label for="productName" class="form-label">Product Name</label>
+                                    <input type="text" class="form-control" id="productName" name="productName"
+                                        placeholder="Enter product name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productDesc" class="form-label">Description</label>
+                                    <textarea class="form-control" id="productDesc" rows="3" name="productDesc"
+                                        placeholder="Enter product description"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productCategory" class="form-label">Category</label>
+                                    <input type="text" class="form-control" id="productCategory" name="productCategory"
+                                        placeholder="Enter product category">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productAmount" class="form-label">Amount</label>
+                                    <input type="number" step="0.01" class="form-control" id="productAmount"
+                                        name="productAmount" name="productAmount" placeholder="Enter product amount">
+                                </div>
+                                <div style="text-align: center; margin-top: 2rem;">
+                                    <button type="submit" name="product_upload_data"
+                                        style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
+                                        UPLOAD
+                                    </button>
+                                </div>
 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
