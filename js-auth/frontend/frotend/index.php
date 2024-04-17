@@ -82,6 +82,7 @@ require_once '../frotend/dbcon.php';
     <!-- off Canvas End -->
     <div class="menu-overlay"></div>
 
+
     <!-- Slider Start -->
     <div class="section">
         <div class="swiper-container slider-active">
