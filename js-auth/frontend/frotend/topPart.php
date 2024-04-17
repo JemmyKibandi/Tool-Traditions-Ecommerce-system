@@ -45,7 +45,7 @@
                             <a href="#" class="menu-title">Shop Single</a>
 
                             <ul class="menu-item">
-                                <li><a href="shop-single.html">Shop Single</a></li>
+                                <li><a href="display.php">Shop Single</a></li>
                                 <li><a href="shop-single-affiliate.html">Shop Single Affiliate</a></li>
                                 <li><a href="shop-single-gallery.html">Shop Single Gallery</a></li>
                                 <li><a href="shop-single-group.html">Shop Single Group</a></li>
