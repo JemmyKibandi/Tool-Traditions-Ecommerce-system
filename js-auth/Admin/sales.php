@@ -72,13 +72,12 @@ require_once '../frontend/frotend/dbcon.php';
                         <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Name</th>
                         <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Amount</th>
                         <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Category</th>
-                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Description
-                        </th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Client Details</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM product";
+                    $sql = "SELECT * FROM sales";
                     $result = $db->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -88,10 +87,15 @@ require_once '../frontend/frotend/dbcon.php';
                         <td style="padding: 8px; border-bottom: 1px solid #ddd;">
                             <img src="img/ICON.jpg" style="width: 20px; height: 30px; border-radius: 50%;">
                         </td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["name"]; ?></td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["amount"]; ?></td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["category"]; ?></td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["description"]; ?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["product_name"]; ?>
+                        </td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["product_cost"]; ?>
+                        </td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["product_category"]; ?>
+                        </td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">Client Name:
+                            <?php echo $row["client_name"]; ?> <br>Client Phone: <?php echo $row["client_phone"]; ?>
+                        </td>
 
                     </tr>
                     <?php
@@ -130,29 +134,52 @@ require_once '../frontend/frotend/dbcon.php';
                         <div class="col-md-12">
                             <form action="server.php" method="post" type="multipart form">
                                 <div class="mb-3">
-                                    <label for="productName" class="form-label">Product Name</label>
-                                    <input type="text" class="form-control" id="productName" name="productName"
+                                    <label for="productName" class="form-label">Select Product</label>
+                                    <select type="text" class="form-control" id="productName" name="sale_product"
                                         placeholder="Enter product name">
+                                        <option class="form-control border-start-0" value="None Selected">
+                                            Please select a product
+                                        </option>
+                                        <?php
+                                                           $sql = "SELECT * FROM product";
+                                                           $result = $db->query($sql);
+                                       
+                                                           if ($result->num_rows > 0) {
+                                                               while ($row = $result->fetch_assoc()) {
+                                                      ?>
+                                        <option class="form-control border-start-0"
+                                            value="<?php echo $row['product_id']; ?>">
+                                            <?php echo $row['name']; ?>
+                                        </option>
+                                        <?php
+                                            }
+                                        } else {
+                                            echo 'Error: ' . mysqli_error($db);
+                                        }
+
+                                        mysqli_close($db);
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="productDesc" class="form-label">Description</label>
-                                    <textarea class="form-control" id="productDesc" rows="3" name="productDesc"
-                                        placeholder="Enter product description"></textarea>
+                                    <label for="sale_price" class="form-label">Price</label>
+                                    <input type="number" class="form-control" id="sale_price" rows="3" name="sale_price"
+                                        placeholder="Enter Price">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="productCategory" class="form-label">Category</label>
-                                    <input type="text" class="form-control" id="productCategory" name="productCategory"
-                                        placeholder="Enter product category">
+                                    <label for="client_name" class="form-label">Client name</label>
+                                    <input type="text" class="form-control" id="client_name" name="client_name"
+                                        placeholder="Enter Client name">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="productAmount" class="form-label">Amount</label>
-                                    <input type="number" step="0.01" class="form-control" id="productAmount"
-                                        name="productAmount" name="productAmount" placeholder="Enter product amount">
+                                    <label for="client_phone" class="form-label">Client Phone</label>
+                                    <input type="number" step="0.01" class="form-control" id="client_phone"
+                                        name="client_phone" name="client_phone" placeholder="Enter Client Phone">
                                 </div>
                                 <div style="text-align: center; margin-top: 2rem;">
-                                    <button type="submit" name="product_upload_data"
+                                    <button type="submit" name="sale_upload_data"
                                         style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
-                                        UPLOAD
+                                        Sell
                                     </button>
                                 </div>
 

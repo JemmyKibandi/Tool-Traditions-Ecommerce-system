@@ -38,3 +38,42 @@ if (isset($_POST['product_upload_data'])) {
     $stmt->close();
     $db->close();
 }
+if (isset($_POST['sale_upload_data'])) {
+    $productId = mysqli_real_escape_string($db, $_POST['sale_product']);
+    $productPrice = mysqli_real_escape_string($db, $_POST['sale_price']);
+    $clientName = mysqli_real_escape_string($db, $_POST['client_name']);
+    $clientPhone = mysqli_real_escape_string($db, $_POST['client_phone']);
+
+    $query = "SELECT * FROM product WHERE product_id = ?";
+    $stmt = $db->prepare($query);
+    $stmt->bind_param("s", $productId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $productDetails = $result->fetch_assoc();
+        $productName = $productDetails['name'];
+        $productCategory = $productDetails['category'];
+        $productDescription = $productDetails['description'];
+
+        // Correct the SQL statement: The VALUES clause had one '?' too many and missed a closing parenthesis
+        $insertStmt = $db->prepare("INSERT INTO `sales`(`prod_id`, `product_cost`, `product_category`, `product_name`, `client_name`, `client_phone`) VALUES (?, ?, ?, ?, ?, ?)");
+        $insertStmt->bind_param("ssssss", $productId, $productPrice, $productCategory, $productName, $clientName, $clientPhone);
+
+        if ($insertStmt->execute()) {
+            $_SESSION['succ'] = "Product Successfully Added";
+        } else {
+            $_SESSION['err'] = "Product Unsuccessfully Added";
+        }
+        $insertStmt->close();
+    } else {
+        $_SESSION['err'] = "No product found with the given ID";
+    }
+    $stmt->close();
+    header('location: sales.php');
+    $db->close();
+} else {
+    $_SESSION['err'] = "No data submitted";
+    header('location: sales.php');
+}
+?>

@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+require_once '../frotend/dbcon.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +18,55 @@
     <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
 
+    <style>
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
 
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    </style>
 </head>
 
 <body>
@@ -38,7 +88,7 @@
             <div class="swiper-wrapper">
                 <!-- Single Slider Start -->
                 <div class="single-slider swiper-slide animation-style-01"
-                    style="background-image: url(assets/img/slider/slider-01.jpg);">
+                    style="background-image: url(../../Admin/img/here.png);">
                     <div class="container">
                         <!-- Slider Content Start -->
                         <div class="slider-content">
@@ -83,20 +133,27 @@
             <div class="row justify-content-between">
                 <div class="col-lg-4">
                     <div class="about-image">
-                        <img src="assets/img/about.jpg" alt="">
+                        <img src="../../Admin/img/here2-removebg-preview.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="about-text">
                         <div class="about-text-wrapper">
                             <h4 class="title">About us</h4>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                                piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
-                                McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
-                                the more obscure Latin words, consectetur. <br><br> Lorem Ipsum passage, and going
-                                through the cites of the word in classical literature, discovered the undoubtable
-                                source. Lorem Ipsum comes from sections Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Facilis distinctio sunt exercitationem. <a href="#">Learn More</a></p>
+                            <p>At Tool Traditions, we believe in innovation, reliability, and customer satisfaction. Our
+                                range includes everything from drills and saws to advanced machinery for specialized
+                                tasks, each designed to offer precision and robust performance. Whether you're building
+                                a backyard deck or constructing a skyscraper, our tools are designed to deliver optimal
+                                results.
+
+                                Our commitment goes beyond just supplying tools. We are partners in your projects,
+                                offering expert advice, demonstrations, and responsive support. With Tool Traditions,
+                                you're not just buying a tool; you're gaining a partner who supports your passion and
+                                contributes to your success.
+
+                                Our tools are crafted to endure, incorporating the latest technology and adhering to the
+                                strictest safety standards. They are rigorously tested under the toughest conditions to
+                                ensure they live up to the demands of your work environments.</p>
                         </div>
                         <img src="assets/img/about-text.png" alt="">
                     </div>
@@ -120,279 +177,70 @@
             <div class="product-wrapper product-active mt-n1">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
+                        <?php
+                        $query = "SELECT * FROM product";
+                        $result = mysqli_query($db, $query);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
                         <div class="swiper-slide">
-                            <!-- Product Item Start -->
                             <div class="product-item">
                                 <div class="image-block">
                                     <a href="shop-single.html">
-                                        <img src="assets/img/product/prduct-13.jpg" alt="">
-                                        <img class="image-hover" src="assets/img/product/prduct-12.jpg" alt="">
+                                        <img src="../../Admin/img/ICON.jpg" alt="Product Image">
+                                        <img class="image-hover" src="assets/img/product/prduct-12.jpg"
+                                            alt="Product Image Hover">
                                     </a>
                                     <div class="product-label">
                                         <span class="new">New</span>
                                         <span class="discount-percentage">-20%</span>
                                     </div>
                                     <div class="product-action">
-                                        <a class="action-btn add-cart" href="#"><i class="icon-shopping-bag2"></i></a>
-                                        <a class="action-btn wishlist " href="#"><i class="icon-heart"></i></a>
-                                        <a class="action-btn compare" href="#"><i class="icon-sliders"></i></a>
                                         <a class="action-btn quick-view" href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quickView"><i class="icon-search"></i></a>
+                                            data-bs-target="#quickView<?php echo $row['product_id']; ?>"><i
+                                                class="icon-search"></i></a>
                                     </div>
                                 </div>
                                 <div class="product-desc">
                                     <div class="product-features-reviews">
-                                        <a href="#" class="features">Studio Design</a>
-
-                                        <div class="review-star">
-                                            <div class="star" style="width: 80%;"></div>
-                                        </div>
+                                        <a href="#" class="features"><b>Category:</b>
+                                            <?php echo htmlspecialchars($row['category']); ?></a>
                                     </div>
-                                    <h4 class="product-name"><a href="shop-single.html">Originals Kaval Windbreaker
-                                            Winter Jacket</a></h4>
+                                    <h4 class="product-name"><a
+                                            href="shop-single.html"><?php echo htmlspecialchars($row['amount']); ?></a>
+                                    </h4>
                                     <div class="product-price">
-                                        <span class="sale-price">$19.12</span>
-                                        <span class="old-price">$23.90</span>
+                                        <span class="sale-price"><?php echo htmlspecialchars($row['name']); ?></span>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Product Item End -->
                         </div>
+                        <!-- Quick View Start -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <p>Some text in the Modal..</p>
+                            </div>
+
+                        </div>
+                        <!-- Quick View End -->
+                        <?php }
+                        } ?>
                     </div>
                 </div>
-                <!-- Add Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
             </div>
-            <!-- Product Wrapper End -->
+
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
+        <!-- Product Wrapper End -->
+    </div>
     </div>
     <!-- New Product End -->
-
-    <!-- Banner Start -->
-    <div class="section mt-n6">
-        <div class="container">
-            <!-- Banner Wrapper Start -->
-            <div class="banner-wrapper section-margin-02">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <!-- Banner Box Start -->
-                        <div class="banner-box">
-                            <a href="shop-grid-left-sidebar.html">
-                                <img src="assets/img/banner/banner-01.jpg" alt="">
-                            </a>
-                        </div>
-                        <!-- Banner Box End -->
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <!-- Banner Box Start -->
-                        <div class="banner-box">
-                            <a href="shop-grid-left-sidebar.html">
-                                <img src="assets/img/banner/banner-02.jpg" alt="">
-                            </a>
-                        </div>
-                        <!-- Banner Box End -->
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <!-- Banner Box Start -->
-                        <div class="banner-box">
-                            <a href="shop-grid-left-sidebar.html">
-                                <img src="assets/img/banner/banner-03.jpg" alt="">
-                            </a>
-                        </div>
-                        <!-- Banner Box End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Banner Wrapper End -->
-        </div>
-    </div>
-    <!-- Banner End -->
-
-    <!-- Best Seller Start -->
-    <div class="section section-padding-02 mt-n3">
-        <div class="container">
-            <!-- Product Tabs Start -->
-            <div class="product-tabs">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item"><a class="active" data-bs-toggle="tab" href="#tab1">Best Seller</a></li>
-                    <li class="nav-item"><a data-bs-toggle="tab" href="#tab2">Trending</a></li>
-                    <li class="nav-item"><a data-bs-toggle="tab" href="#tab3">Top Sale</a></li>
-                </ul>
-
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="tab1">
-                        <!-- Product Wrapper Start -->
-                        <div class="product-wrapper product-active">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/img/product/prduct-13.jpg" alt="">
-                                                    <img class="image-hover" src="assets/img/product/prduct-12.jpg"
-                                                        alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                    <span class="discount-percentage">-20%</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="#"><i
-                                                            class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="#"><i
-                                                            class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="#"><i
-                                                            class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Originals Kaval
-                                                        Windbreaker Winter Jacket</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                    <span class="old-price">$23.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                        <!-- Product Wrapper End -->
-                    </div>
-                    <div class="tab-pane fade" id="tab2">
-                        <!-- Product Wrapper Start -->
-                        <div class="product-wrapper product-active">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/img/product/prduct-13.jpg" alt="">
-                                                    <img class="image-hover" src="assets/img/product/prduct-12.jpg"
-                                                        alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                    <span class="discount-percentage">-20%</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="#"><i
-                                                            class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="#"><i
-                                                            class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="#"><i
-                                                            class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Water and Wind
-                                                        Resistant Insulated Jacket</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                    <span class="old-price">$23.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                        <!-- Product Wrapper End -->
-                    </div>
-                    <div class="tab-pane fade" id="tab3">
-                        <!-- Product Wrapper Start -->
-                        <div class="product-wrapper product-active">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/img/product/prduct-13.jpg" alt="">
-                                                    <img class="image-hover" src="assets/img/product/prduct-12.jpg"
-                                                        alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                    <span class="discount-percentage">-20%</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="#"><i
-                                                            class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="#"><i
-                                                            class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="#"><i
-                                                            class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Juicy Couture Solid
-                                                        Sleeve Puffer Jacket Solid...</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                    <span class="old-price">$23.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                        <!-- Product Wrapper End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Product Tabs End -->
-        </div>
-    </div>
-    <!-- Best Seller End -->
-
     <!-- footer Start -->
     <?php include_once('footer.php'); ?>
     <!-- footer End -->
@@ -402,161 +250,6 @@
         <i class="icon-chevron-up"></i>
     </a>
     <!--Back To End-->
-
-    <!-- Quick View Start -->
-    <div class="modal fade" id="quickView">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <!-- Shop Gallery image Start -->
-                            <div class="quick-view-image vertical-slider-wrap">
-                                <div class="swiper-container quick-view-slider">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="single-img">
-                                                <img src="assets/img/shop-single/shop-single-01.jpg"
-                                                    alt="Product Image">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="single-img">
-                                                <img src="assets/img/shop-single/shop-single-02.jpg"
-                                                    alt="Product Image">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="single-img">
-                                                <img src="assets/img/shop-single/shop-single-03.jpg"
-                                                    alt="Product Image">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="single-img">
-                                                <img src="assets/img/shop-single/shop-single-04.jpg"
-                                                    alt="Product Image">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="single-img">
-                                                <img src="assets/img/shop-single/shop-single-05.jpg"
-                                                    alt="Product Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-label">
-                                        <span class="new">New</span>
-                                    </div>
-                                </div>
-                                <div class="quick-view-slider-nav swiper-container">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <img src="assets/img/shop-single/shop-single-01.jpg"
-                                                alt="Product Thumnail">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="assets/img/shop-single/shop-single-02.jpg"
-                                                alt="Product Thumnail">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="assets/img/shop-single/shop-single-03.jpg"
-                                                alt="Product Thumnail">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="assets/img/shop-single/shop-single-04.jpg"
-                                                alt="Product Thumnail">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="assets/img/shop-single/shop-single-05.jpg"
-                                                alt="Product Thumnail">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Shop Gallery image End -->
-                        </div>
-                        <div class="col-md-6">
-                            <!-- Shop Single Start -->
-                            <div class="shop-single-content quick-view-content">
-                                <h3 class="product-name">Juicy Couture Juicy Quilted Terry Track Jacket</h3>
-                                <p class="reference">Reference: Demo</p>
-                                <ul class="shop-rating-content">
-                                    <li>
-                                        <div class="review-star">
-                                            <div class="star" style="width: 80%;"></div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#"><i class="fal fa-comment-dots"></i> Read reviews
-                                            <span>(3)</span></a></li>
-                                    <li><a href="#"><i class="fal fa-edit"></i> Write a review</a></li>
-                                </ul>
-                                <div class="product-prices">
-                                    <span class="old-price">$35.90</span>
-                                    <span class="sale-price">$28.72</span>
-                                    <span class="discount-percentage">Save 20%</span>
-                                </div>
-                                <div class="product-description">
-                                    <ul>
-                                        <li>Score extra points when it comes to your sporty look with the Juicy Couture™
-                                            Juicy Quilted Terry Track Jacket.</li>
-                                        <li>Soft terry construction in a quilted design.</li>
-                                        <li>Front zipper closure.</li>
-                                        <li>61% cotton, 39% polyester;</li>
-                                        <li>Lining: 58% cotton, 42% polyester.</li>
-                                    </ul>
-                                </div>
-                                <div class="product-size">
-                                    <span class="label">Size</span>
-                                    <div class="size-select">
-                                        <select>
-                                            <option value="0">S</option>
-                                            <option value="0">M</option>
-                                            <option value="0">L</option>
-                                            <option value="0">XL</option>
-                                        </select>
-                                        <i class="icon-chevron-down"></i>
-                                    </div>
-                                </div>
-                                <div class="product-quantity-cart">
-                                    <span class="label">Quantity</span>
-                                    <div class="product-quantity-cart-wrapper d-flex">
-                                        <div class="product-quantity d-inline-flex">
-                                            <button type="button" class="sub"><i class="icon-chevron-down"></i></button>
-                                            <input type="text" value="1" />
-                                            <button type="button" class="add"><i class="icon-chevron-up"></i></button>
-                                        </div>
-                                        <div class="product-cart">
-                                            <button class="btn btn-dark btn-hover-primary">+ Add to Cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-additional-info">
-                                    <ul class="social-sharing">
-                                        <li><a class="facebook" href="#"><i class="fab fa-facebook-square"></i>
-                                                Share</a></li>
-                                        <li><a class="twitter" href="#"><i class="fab fa-twitter"></i> Tweet</a></li>
-                                        <li><a class="google" href="#"><i class="fab fa-google-plus-g"></i> Google+</a>
-                                        </li>
-                                        <li><a class="pinterest" href="#"><i class="fab fa-pinterest-square"></i>
-                                                Pinterest</a></li>
-                                    </ul>
-                                    <p class="panel-product-actions"><a href="#" class="action-btn wishlist"><i
-                                                class="icon-heart"></i> Add to wishlist </a></p>
-                                    <p class="panel-product-actions"><button class="action-btn wishlist"><i
-                                                class="icon-sliders"></i> Add to compare</button></p>
-                                </div>
-                            </div>
-                            <!-- Shop Single End -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Quick View End -->
-
 
     <!-- Modernizer & jQuery JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
@@ -568,7 +261,33 @@
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
 
+    <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
 
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>
 </body>
 
 </html>

@@ -58,11 +58,6 @@ require_once '../frontend/frotend/dbcon.php';
                     </div>
                 </div>
             </div>
-            <button
-                style="background-color: #a9a9a9; padding: 5px 10px; margin-left: 10px; border-radius: 15px; border: none;"
-                data-bs-toggle="modal" data-bs-target="#quickView">
-                Add Sales
-            </button>
             <table
                 style="width: 100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; border: 5px solid black;">
                 <thead>
