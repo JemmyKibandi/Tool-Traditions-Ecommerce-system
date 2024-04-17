@@ -121,106 +121,105 @@ require_once '../frontend/frotend/dbcon.php';
     <script src="../frontend/frotend/assets/js/main.js"></script>
 
 
-</body>
-<!-- Quick View Start -->
-<div class="modal fade" id="quickView">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <form action="server.php" method="post" type="multipart form">
-                            <div class="mb-3">
-                                <label for="productName" class="form-label">Product Name</label>
-                                <input type="text" class="form-control" id="productName" name="productName"
-                                    placeholder="Enter product name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="productDesc" class="form-label">Description</label>
-                                <textarea class="form-control" id="productDesc" rows="3" name="productDesc"
-                                    placeholder="Enter product description"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="productCategory" class="form-label">Category</label>
-                                <input type="text" class="form-control" id="productCategory" name="productCategory"
-                                    placeholder="Enter product category">
-                            </div>
-                            <div class="mb-3">
-                                <label for="productAmount" class="form-label">Amount</label>
-                                <input type="number" step="0.01" class="form-control" id="productAmount"
-                                    name="productAmount" name="productAmount" placeholder="Enter product amount">
-                            </div>
-                            <div style="text-align: center; margin-top: 2rem;">
-                                <button type="submit" name="product_upload_data"
-                                    style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
-                                    UPLOAD
-                                </button>
-                            </div>
+    <!-- Quick View Start -->
+    <div class="modal fade" id="quickView">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form action="server.php" method="post" type="multipart form">
+                                <div class="mb-3">
+                                    <label for="productName" class="form-label">Product Name</label>
+                                    <input type="text" class="form-control" id="productName" name="productName"
+                                        placeholder="Enter product name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productDesc" class="form-label">Description</label>
+                                    <textarea class="form-control" id="productDesc" rows="3" name="productDesc"
+                                        placeholder="Enter product description"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productCategory" class="form-label">Category</label>
+                                    <input type="text" class="form-control" id="productCategory" name="productCategory"
+                                        placeholder="Enter product category">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productAmount" class="form-label">Amount</label>
+                                    <input type="number" step="0.01" class="form-control" id="productAmount"
+                                        name="productAmount" name="productAmount" placeholder="Enter product amount">
+                                </div>
+                                <div style="text-align: center; margin-top: 2rem;">
+                                    <button type="submit" name="product_upload_data"
+                                        style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
+                                        UPLOAD
+                                    </button>
+                                </div>
 
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-var selectedimg = [];
+    <script>
+    var selectedimg = [];
 
-function allowDrop(event) {
-    event.preventDefault();
-    event.dataTransfer.dropEffect = "copy";
-}
+    function allowDrop(event) {
+        event.preventDefault();
+        event.dataTransfer.dropEffect = "copy";
+    }
 
-function drop(event) {
-    event.preventDefault();
-    var files = event.dataTransfer.files || event.target.files;
-    handleFiles(files);
-}
+    function drop(event) {
+        event.preventDefault();
+        var files = event.dataTransfer.files || event.target.files;
+        handleFiles(files);
+    }
 
-function handleFiles(files) {
-    var dropzone = document.getElementById('dropzone');
-    if (files && files.length > 0) {
-        for (var i = 0; i < files.length; i++) {
-            var file = files[i];
-            if (file.type.match('image.*')) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    var imgSrc = e.target.result;
-                    var imgElement = document.createElement('img');
-                    imgElement.src = imgSrc;
-                    imgElement.style.width = '100px';
-                    imgElement.style.height = '100px';
-                    imgElement.style.margin = '5px';
-                    imgElement.style.border = '2px solid green'; // Applying the green border
-                    imgElement.style.borderRadius = '10px'; // Rounded border
-                    imgElement.className = 'uploaded-image';
-                    var closeButton = document.createElement('button');
-                    closeButton.innerHTML = 'x';
-                    closeButton.style.marginLeft = '5px';
-                    closeButton.style.cursor = 'pointer';
-                    closeButton.onclick = function() {
-                        var index = selectedimg.indexOf(imgSrc);
-                        if (index !== -1) {
-                            selectedimg.splice(index, 1);
-                        }
-                        dropzone.removeChild(imgElement);
-                        dropzone.removeChild(closeButton);
+    function handleFiles(files) {
+        var dropzone = document.getElementById('dropzone');
+        if (files && files.length > 0) {
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                if (file.type.match('image.*')) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        var imgSrc = e.target.result;
+                        var imgElement = document.createElement('img');
+                        imgElement.src = imgSrc;
+                        imgElement.style.width = '100px';
+                        imgElement.style.height = '100px';
+                        imgElement.style.margin = '5px';
+                        imgElement.style.border = '2px solid green'; // Applying the green border
+                        imgElement.style.borderRadius = '10px'; // Rounded border
+                        imgElement.className = 'uploaded-image';
+                        var closeButton = document.createElement('button');
+                        closeButton.innerHTML = 'x';
+                        closeButton.style.marginLeft = '5px';
+                        closeButton.style.cursor = 'pointer';
+                        closeButton.onclick = function() {
+                            var index = selectedimg.indexOf(imgSrc);
+                            if (index !== -1) {
+                                selectedimg.splice(index, 1);
+                            }
+                            dropzone.removeChild(imgElement);
+                            dropzone.removeChild(closeButton);
+                        };
+                        selectedimg.push(imgSrc);
+                        dropzone.appendChild(imgElement);
+                        dropzone.appendChild(closeButton);
                     };
-                    selectedimg.push(imgSrc);
-                    dropzone.appendChild(imgElement);
-                    dropzone.appendChild(closeButton);
-                };
-                reader.readAsDataURL(file);
-            } else {
-                alert('Please select only image files.');
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Please select only image files.');
+                }
             }
         }
     }
-}
-</script>
+    </script>
 </body>
 
 </html>

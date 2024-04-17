@@ -98,7 +98,7 @@
                                         <!-- Product Item Start -->
                                         <div class="product-item">
                                             <div class="image-block">
-                                                <a href="shop-single.html">
+                                                <a href="display.php">
                                                     <img src="assets/img/product/prduct-13.jpg" alt="">
                                                     <img class="image-hover" src="assets/img/product/prduct-12.jpg"
                                                         alt="">
@@ -126,7 +126,7 @@
                                                         <div class="star" style="width: 80%;"></div>
                                                     </div>
                                                 </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Originals Kaval
+                                                <h4 class="product-name"><a href="display.php">Originals Kaval
                                                         Windbreaker Winter Jacket</a></h4>
                                                 <div class="product-price">
                                                     <span class="sale-price">$19.12</span>
@@ -146,7 +146,7 @@
                                 <!-- Product Item Start -->
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
-                                        <a href="shop-single.html">
+                                        <a href="display.php">
                                             <img src="assets/img/product/prduct-13.jpg" alt="">
                                             <img class="image-hover" src="assets/img/product/prduct-12.jpg" alt="">
                                         </a>
@@ -167,7 +167,7 @@
                                         <div class="product-features-reviews">
                                             <a href="#" class="features">Studio Design</a>
                                         </div>
-                                        <h4 class="product-name"><a href="shop-single.html">Originals Kaval Windbreaker
+                                        <h4 class="product-name"><a href="display.php">Originals Kaval Windbreaker
                                                 Winter Jacket</a></h4>
                                         <div class="review-star">
                                             <div class="star" style="width: 80%;"></div>
@@ -191,7 +191,7 @@
                                 <!-- Product Item Start -->
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
-                                        <a href="shop-single.html">
+                                        <a href="display.php">
                                             <img src="assets/img/product/prduct-12.jpg" alt="">
                                             <img class="image-hover" src="assets/img/product/prduct-07.jpg" alt="">
                                         </a>
@@ -212,7 +212,7 @@
                                         <div class="product-features-reviews">
                                             <a href="#" class="features">Studio Design</a>
                                         </div>
-                                        <h4 class="product-name"><a href="shop-single.html">Juicy Couture Juicy Quilted
+                                        <h4 class="product-name"><a href="display.php">Juicy Couture Juicy Quilted
                                                 Terry Track Jacket</a></h4>
                                         <div class="review-star">
                                             <div class="star" style="width: 80%;"></div>
@@ -236,7 +236,7 @@
                                 <!-- Product Item Start -->
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
-                                        <a href="shop-single.html">
+                                        <a href="display.php">
                                             <img src="assets/img/product/prduct-07.jpg" alt="">
                                             <img class="image-hover" src="assets/img/product/prduct-12.jpg" alt="">
                                         </a>
@@ -257,7 +257,7 @@
                                         <div class="product-features-reviews">
                                             <a href="#" class="features">Studio Design</a>
                                         </div>
-                                        <h4 class="product-name"><a href="shop-single.html">Brixton Patrol All Terrain
+                                        <h4 class="product-name"><a href="display.php">Brixton Patrol All Terrain
                                                 Anorak Jacket...</a></h4>
                                         <div class="review-star">
                                             <div class="star" style="width: 80%;"></div>
@@ -281,7 +281,7 @@
                                 <!-- Product Item Start -->
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
-                                        <a href="shop-single.html">
+                                        <a href="display.php">
                                             <img src="assets/img/product/prduct-06.jpg" alt="">
                                             <img class="image-hover" src="assets/img/product/prduct-09.jpg" alt="">
                                         </a>
@@ -302,7 +302,7 @@
                                         <div class="product-features-reviews">
                                             <a href="#" class="features">Studio Design</a>
                                         </div>
-                                        <h4 class="product-name"><a href="shop-single.html">New Balance Arishi Sport v1
+                                        <h4 class="product-name"><a href="display.php">New Balance Arishi Sport v1
                                                 New Balance</a></h4>
                                         <div class="review-star">
                                             <div class="star" style="width: 80%;"></div>
@@ -326,7 +326,7 @@
                                 <!-- Product Item Start -->
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
-                                        <a href="shop-single.html">
+                                        <a href="display.php">
                                             <img src="assets/img/product/prduct-09.jpg" alt="">
                                             <img class="image-hover" src="assets/img/product/prduct-08.jpg" alt="">
                                         </a>
@@ -347,7 +347,7 @@
                                         <div class="product-features-reviews">
                                             <a href="#" class="features">Studio Design</a>
                                         </div>
-                                        <h4 class="product-name"><a href="shop-single.html">Calvin Klein Jeans
+                                        <h4 class="product-name"><a href="display.php">Calvin Klein Jeans
                                                 Reflective Logo Full Zip</a></h4>
                                         <div class="review-star">
                                             <div class="star" style="width: 80%;"></div>
@@ -371,7 +371,7 @@
                                 <!-- Product Item Start -->
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
-                                        <a href="shop-single.html">
+                                        <a href="display.php">
                                             <img src="assets/img/product/prduct-08.jpg" alt="">
                                             <img class="image-hover" src="assets/img/product/prduct-11.jpg" alt="">
                                         </a>
@@ -392,7 +392,7 @@
                                         <div class="product-features-reviews">
                                             <a href="#" class="features">Studio Design</a>
                                         </div>
-                                        <h4 class="product-name"><a href="shop-single.html">Madden by Steve Madden Cale
+                                        <h4 class="product-name"><a href="display.php">Madden by Steve Madden Cale
                                                 6 Handsome Madden</a></h4>
                                         <div class="review-star">
                                             <div class="star" style="width: 80%;"></div>
@@ -416,7 +416,7 @@
                                 <!-- Product Item Start -->
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
-                                        <a href="shop-single.html">
+                                        <a href="display.php">
                                             <img src="assets/img/product/prduct-11.jpg" alt="">
                                             <img class="image-hover" src="assets/img/product/prduct-03.jpg" alt="">
                                         </a>
@@ -437,7 +437,7 @@
                                         <div class="product-features-reviews">
                                             <a href="#" class="features">Studio Design</a>
                                         </div>
-                                        <h4 class="product-name"><a href="shop-single.html">Trans-Weight Hooded Wind and
+                                        <h4 class="product-name"><a href="display.php">Trans-Weight Hooded Wind and
                                                 Water Resistant Shell</a></h4>
                                         <div class="review-star">
                                             <div class="star" style="width: 80%;"></div>
@@ -461,7 +461,7 @@
                                 <!-- Product Item Start -->
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
-                                        <a href="shop-single.html">
+                                        <a href="display.php">
                                             <img src="assets/img/product/prduct-03.jpg" alt="">
                                         </a>
                                         <div class="product-label">
@@ -481,7 +481,7 @@
                                         <div class="product-features-reviews">
                                             <a href="#" class="features">Studio Design</a>
                                         </div>
-                                        <h4 class="product-name"><a href="shop-single.html">Water and Wind Resistant
+                                        <h4 class="product-name"><a href="display.php">Water and Wind Resistant
                                                 Insulated Jacket</a></h4>
                                         <div class="review-star">
                                             <div class="star" style="width: 80%;"></div>
@@ -505,7 +505,7 @@
                                 <!-- Product Item Start -->
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
-                                        <a href="shop-single.html">
+                                        <a href="display.php">
                                             <img src="assets/img/product/prduct-02.jpg" alt="">
                                             <img class="image-hover" src="assets/img/product/prduct-01.jpg" alt="">
                                         </a>
@@ -526,7 +526,7 @@
                                         <div class="product-features-reviews">
                                             <a href="#" class="features">Studio Design</a>
                                         </div>
-                                        <h4 class="product-name"><a href="shop-single.html">New Balance Fresh Foam
+                                        <h4 class="product-name"><a href="display.php">New Balance Fresh Foam
                                                 Kaymin Cushioning...</a></h4>
                                         <div class="review-star">
                                             <div class="star" style="width: 80%;"></div>
@@ -550,7 +550,7 @@
                                 <!-- Product Item Start -->
                                 <div class="product-item product-list-item">
                                     <div class="image-block">
-                                        <a href="shop-single.html">
+                                        <a href="display.php">
                                             <img src="assets/img/product/prduct-05.jpg" alt="">
                                             <img class="image-hover" src="assets/img/product/prduct-04.jpg" alt="">
                                         </a>
@@ -571,7 +571,7 @@
                                         <div class="product-features-reviews">
                                             <a href="#" class="features">Studio Design</a>
                                         </div>
-                                        <h4 class="product-name"><a href="shop-single.html">Juicy Couture Solid Sleeve
+                                        <h4 class="product-name"><a href="display.php">Juicy Couture Solid Sleeve
                                                 Puffer Jacket Solid...</a></h4>
                                         <div class="review-star">
                                             <div class="star" style="width: 80%;"></div>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once '../frontend/frotend/dbcon.php';
 
@@ -72,8 +72,42 @@ if (isset($_POST['sale_upload_data'])) {
     $stmt->close();
     header('location: sales.php');
     $db->close();
-} else {
-    $_SESSION['err'] = "No data submitted";
-    header('location: sales.php');
 }
-?>
+if (isset($_POST['submit'])) {
+    // Retrieve and sanitize input data
+    $productId = mysqli_real_escape_string($db, $_POST['productId']);
+    $clientName = mysqli_real_escape_string($db, $_POST['clientName']);
+    $clientPhone = mysqli_real_escape_string($db, $_POST['clientPhone']);
+    $clientEmail = mysqli_real_escape_string($db, $_POST['clientEmail']);
+    $clientMessage = mysqli_real_escape_string($db, $_POST['clientMessage']);
+
+    // Prepare the SQL statement
+    $stmt = $db->prepare("INSERT INTO inquiries (product_id, name, phone, email, message) VALUES (?, ?, ?, ?, ?)");
+    if (!$stmt) {
+        echo "Prepare failed: (" . $db->errno . ") " . $db->error;
+        exit;
+    }
+    $stmt->bind_param("issss", $productId, $clientName, $clientPhone, $clientEmail, $clientMessage);
+
+    // Execute the statement and check for success
+    if ($stmt->execute()) {
+        $_SESSION['success'] = "Inquiry Successfully Submitted";
+
+        // Send an email to the administrator with the inquiry details
+        $adminEmail = "admin@yourdomain.com"; // Set the administrator email address
+        $adminSubject = "New Product Inquiry";
+        $adminBody = "New inquiry received for Product ID " . $productId . "\nFrom: " . $clientName . " - Email: " . $clientEmail . "\nPhone: " . $clientPhone . "\nMessage: " . $clientMessage;
+        $headers = "From: noreply@yourdomain.com";
+        mail($adminEmail, $adminSubject, $adminBody, $headers);
+        
+        header('Location: shop.php'); // Redirect to a thank you or confirmation page
+        exit;
+    } else {
+        $_SESSION['error'] = "Failed to Submit Inquiry: " . $stmt->error;
+        header('Location: shop.php'); // Redirect to error page or display error
+        exit;
+    }
+
+    $stmt->close ();
+    $db->close();
+}

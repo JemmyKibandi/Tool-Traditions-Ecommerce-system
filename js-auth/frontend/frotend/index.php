@@ -17,56 +17,6 @@ require_once '../frotend/dbcon.php';
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
-
-    <style>
-    /* The Modal (background) */
-    .modal {
-        display: none;
-        /* Hidden by default */
-        position: fixed;
-        /* Stay in place */
-        z-index: 1;
-        /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%;
-        /* Full width */
-        height: 100%;
-        /* Full height */
-        overflow: auto;
-        /* Enable scroll if needed */
-        background-color: rgb(0, 0, 0);
-        /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.4);
-        /* Black w/ opacity */
-    }
-
-    /* Modal Content/Box */
-    .modal-content {
-        background-color: #fefefe;
-        margin: 15% auto;
-        /* 15% from the top and centered */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        /* Could be more or less, depending on screen size */
-    }
-
-    /* The Close Button */
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    </style>
 </head>
 
 <body>
@@ -170,7 +120,6 @@ require_once '../frotend/dbcon.php';
             <!-- Section Title Start -->
             <div class="section-title text-center">
                 <h2 class="title">New Arrivals</h2>
-                <p>Consequat magna, massa vel suspendisse morbi aliquam faucibus <br> ligula ante ipsum ac nulla.</p>
             </div>
             <!-- Section Title End -->
 
@@ -188,7 +137,7 @@ require_once '../frotend/dbcon.php';
                         <div class="swiper-slide">
                             <div class="product-item">
                                 <div class="image-block">
-                                    <a href="shop-single.html">
+                                    <a href="display.php">
                                         <img src="../../Admin/img/ICON.jpg" alt="Product Image">
                                         <img class="image-hover" src="assets/img/product/prduct-12.jpg"
                                             alt="Product Image Hover">
@@ -197,11 +146,7 @@ require_once '../frotend/dbcon.php';
                                         <span class="new">New</span>
                                         <span class="discount-percentage">-20%</span>
                                     </div>
-                                    <div class="product-action">
-                                        <a class="action-btn quick-view" href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quickView<?php echo $row['product_id']; ?>"><i
-                                                class="icon-search"></i></a>
-                                    </div>
+
                                 </div>
                                 <div class="product-desc">
                                     <div class="product-features-reviews">
@@ -209,27 +154,20 @@ require_once '../frotend/dbcon.php';
                                             <?php echo htmlspecialchars($row['category']); ?></a>
                                     </div>
                                     <h4 class="product-name"><a
-                                            href="shop-single.html"><?php echo htmlspecialchars($row['amount']); ?></a>
+                                            href="display.php"><?php echo htmlspecialchars($row['amount']); ?></a>
                                     </h4>
                                     <div class="product-price">
                                         <span class="sale-price"><?php echo htmlspecialchars($row['name']); ?></span>
                                     </div>
+                                    <a class="btn btn-dark btn-hover-primary my-4"
+                                        href="display.php?view=<?php echo $row['product_id']; ?>">
+                                        View Product </a>
                                 </div>
                             </div>
                         </div>
-                        <!-- Quick View Start -->
-                        <div id="myModal" class="modal">
-
-                            <!-- Modal content -->
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <p>Some text in the Modal..</p>
-                            </div>
-
-                        </div>
-                        <!-- Quick View End -->
                         <?php }
                         } ?>
+
                     </div>
                 </div>
             </div>
@@ -262,33 +200,17 @@ require_once '../frotend/dbcon.php';
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
 
-    <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
+    <script src="assets/js/plugins/popper.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+    <!-- Plugins JS -->
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/jquery-ui.min.js"></script>
+    <script src="assets/js/plugins/jquery.zoom.min.js"></script>
+    <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/plugins/select2.min.js"></script>
+    <script src="assets/js/plugins/ajax-contact.js"></script>
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-    </script>
 </body>
 
 </html>
