@@ -58,43 +58,55 @@ require_once '../frontend/frotend/dbcon.php';
                     </div>
                 </div>
             </div>
-            <table
+            <button
+                style="background-color: purple; padding: 5px 10px; margin-left: 10px; border-radius: 15px; border: none; color:white;"
+                onclick="generatePDF()">
+                Generate PDF
+            </button>
+            <table id="myTable"
                 style="width: 100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; border: 5px solid black;">
                 <thead>
                     <tr style="background-color: #f2f2f2;">
                         <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Image
                         </th>
                         <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Name</th>
-                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Amount</th>
-                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Category</th>
-                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Product Description
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Client Name</th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Client Phone</th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Client Email</th>
+                        <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Client Message
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM product";
-                    $result = $db->query($sql);
+    $sql = "SELECT * FROM inquiries";
+    $result = $db->query($sql);
 
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                    ?>
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $product_id = $row['product_id'];
+            $sql2 = "SELECT name FROM product WHERE product_id = '$product_id'";
+            $result2 = $db->query($sql2); // Execute the second query
+            if ($result2->num_rows > 0) {
+                $product_row = $result2->fetch_assoc(); // Fetch the result row
+                $product_name = $product_row['name']; ?>
                     <tr style="background-color: #ffffff;">
                         <td style="padding: 8px; border-bottom: 1px solid #ddd;">
                             <img src="img/ICON.jpg" style="width: 20px; height: 30px; border-radius: 50%;">
                         </td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $product_name; ?></td>
                         <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["name"]; ?></td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["amount"]; ?></td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["category"]; ?></td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["description"]; ?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["phone"]; ?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["email"]; ?></td>
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><?php echo $row["message"]; ?></td>
 
                     </tr>
                     <?php
-                        }
+                        } }
                     } else {
                         echo "0 results";
                     }
-
+                
                     ?>
                 </tbody>
             </table>
@@ -105,6 +117,23 @@ require_once '../frontend/frotend/dbcon.php';
     <a href="#" class="back-to-top">
         <i class="icon-chevron-up"></i>
     </a>
+    <script>
+    function generatePDF() {
+        // Create a new jsPDF instance
+        const pdf = new jsPDF();
+
+        // Add table content to the PDF
+        pdf.autoTable({
+            html: '#myTable'
+        });
+
+        // Save the PDF
+        pdf.save('table.pdf');
+    }
+    </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
     <!-- Modernizer & jQuery JS -->
     <script src="../frontend/frotend/assets/js/vendor/modernizr-3.11.2.min.js"></script>

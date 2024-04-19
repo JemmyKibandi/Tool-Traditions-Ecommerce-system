@@ -44,21 +44,13 @@
                             <a href="index.php">Home</a>
                         </li>
                         <li>
-                            <a href="shop.php">Shop</a>
+                            <a href="index.php">Home</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#" class="menu-title">Shop Grid</a>
-
-                                    <ul class="menu-item">
-                                        <li><a href="shop-grid-3-column.html">Shop Grid 3 Column</a></li>
-                                        <li><a href="shop-grid-4-column.html">Shop Grid 4 Column</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html">Shop Grid Left Sidebar</a></li>
-                                        <li><a href="shop-grid-right-sidebar.html">Shop Grid Right Sidebar</a></li>
-                                    </ul>
+                                    <a href="shop.php" class=" menu-title">Shop</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
             </div>

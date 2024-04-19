@@ -45,8 +45,8 @@ require_once '../frotend/dbcon.php';
                         <div class="slider-content">
                             <h5 class="sub-title">Sale Offer 20% Off This Week</h5>
                             <h2 class="main-title">2020 Amazing <br> Barber Shop</h2>
-                            <p>Light knit upper adapts to the shape of your foot for flexible and natural movement.</p>
-                            <a href="shop-list.html" class="btn btn-primary btn-hover-dark">Shopping Now</a>
+                            <p>The home for all types of Power tools </p>
+                            <a href="shop.php" class="btn btn-primary btn-hover-dark">Shopping Now</a>
                         </div>
                         <!-- Slider Content End -->
                     </div>
@@ -60,8 +60,8 @@ require_once '../frotend/dbcon.php';
                         <div class="slider-content">
                             <h5 class="sub-title">Sale Offer 20% Off This Week</h5>
                             <h2 class="main-title">2020 Amazing <br> Barber Shop</h2>
-                            <p>Light knit upper adapts to the shape of your foot for flexible and natural movement.</p>
-                            <a href="shop-list.html" class="btn btn-primary btn-hover-dark">Shopping Now</a>
+                            <p>The home for all types of Power tools </p>
+                            <a href="shop.php" class="btn btn-primary btn-hover-dark">Shopping Now</a>
                         </div>
                         <!-- Slider Content End -->
                     </div>
@@ -137,7 +137,7 @@ require_once '../frotend/dbcon.php';
                         <div class="swiper-slide">
                             <div class="product-item">
                                 <div class="image-block">
-                                    <a href="display.php">
+                                    <a href="display.php?view=<?php echo $row['product_id']; ?>">
                                         <img src="../../Admin/img/ICON.jpg" alt="Product Image">
                                         <img class="image-hover" src="assets/img/product/prduct-12.jpg"
                                             alt="Product Image Hover">

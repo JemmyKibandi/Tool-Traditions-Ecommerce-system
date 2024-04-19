@@ -105,26 +105,31 @@ require_once '../frotend/dbcon.php';
                                 <div class="mb-3">
                                     <label for="clientName" class="form-label">Name:</label>
                                     <input type="text" class="form-control" id="clientName" name="clientName"
-                                        placeholder="Enter your name">
+                                        placeholder="Enter your name" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="clientPhone" class="form-label">Phone:</label>
                                     <input type="tel" class="form-control" id="clientPhone" name="clientPhone"
-                                        placeholder="Enter your phone number">
+                                        placeholder="Enter your phone number" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="clientEmail" class="form-label">Email:</label>
                                     <input type="email" class="form-control" id="clientEmail" name="clientEmail"
-                                        placeholder="Enter your email">
+                                        placeholder="Enter your email" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="clientMessage" class="form-label">Message:</label>
                                     <textarea class="form-control" id="clientMessage" name="clientMessage" rows="3"
-                                        placeholder="Enter your message"></textarea>
+                                        placeholder="Enter your message" required> </textarea>
                                 </div>
+                                <input type="hidden" class="form-control" id="clientEmail" name="product_id"
+                                    value="<?php echo $_GET['view']; ?>" placeholder="Enter your email">
+                                <input type="hidden" class="form-control" id="clientEmail" name="productName"
+                                    value="<?php echo  $row['name']; ?>" placeholder="Enter your email">
                                 <div class="text-center">
-                                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" name="inquire_data" class="btn btn-primary">Inquire</button>
                                 </div>
+
                             </div>
                         </div>
                     </form>
